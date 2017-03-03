@@ -10,59 +10,59 @@ var uuid = require('node-uuid');
 
 module.exports = {
 
-  attributes: {
-    name: {
-      type: "string",
-      minLength: 4,
-      maxLength: 30,
-      require: true
+    attributes: {
 
+        name: {
+            type: "string",
+            minLength: 4,
+            maxLength: 30,
+            required: true
+
+        },
+
+        surname: {
+            type: "string",
+            minLength: 5,
+            maxLength: 30,
+            required: true
+        },
+
+        birthdate: {
+            type: "int",
+            required: true
+        },
+
+        email: {
+            type: "string",
+            email: true,
+            required: true,
+            unique: true
+        },
+
+        height: {
+            type: "int",
+            required: true,
+            defaultsTo: 0
+        },
+
+        weight: {
+            type: "int",
+            required: true,
+            defaultsTo: 0
+        },
+
+        password: {
+            minLength: 8,
+            type: "string"
+        }
     },
 
-    surname: {
-      type: "string",
-      minLength: 5,
-      MaxLength: 30,
-      require: true
-    },
-
-    birthdate: {
-      type: "long",
-      require: true
-    },
-
-    email: {
-      type: "string",
-      email: true,
-      requre: true,
-      unique: true
-    },
-
-    height:  {
-      type: "int",
-      required: true,
-      defaultsTo: 0
-    },
-
-    weight: {
-      type: "int",
-      required: true,
-      defaultsTo: 0
-    },
-
-    password: {
-      minLength: 8,
-      type: "string",
-
-    },
-    toJSON: function(){
-      var obj = this.toObject();
-      delete obj.password;
-      delete obj.confirmation;
-      delete obj.encryptedPassword;
-      delete obj._csrf;
-      return obj;
+    beforeCreate: function (values, cb) {
+        bcrypt.hash(values.password, 10, function (err, hash) {
+            if(err) cb(err);
+            values.password = hash;
+            cb();
+        });
     }
-  }
 };
 
