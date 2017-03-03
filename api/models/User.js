@@ -22,7 +22,7 @@ module.exports = {
     surname: {
       type: "string",
       minLength: 5,
-      MaxLength: 30
+      MaxLength: 30,
       require: true
     },
 
@@ -50,7 +50,7 @@ module.exports = {
       defaultsTo: 0
     },
 
-    encyptedPassword: {
+    password: {
       minLength: 8,
       type: "string",
 
@@ -63,16 +63,6 @@ module.exports = {
       delete obj._csrf;
       return obj;
     }
-  },
-
-  passwordConfirmation: function(encyrptedPassword){
-    return bcrcypt.compareSync(encyrptedPassword, this.encyptedPassword);
-  }
-
-  beforeCreate: function(values, next){
-    bcrypt.hash(values.encyptedPassword, SALT_WORK_FACTOR, function(err, hash){
-      values.encyptedPassword = hash;
-    });
   }
 };
 
