@@ -5,36 +5,74 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+var bcrypt = require('bcrypt');
+var uuid = require('node-uuid');
+
 module.exports = {
 
   attributes: {
     name: {
-      type: "string"
+      type: "string",
+      minLength: 4,
+      maxLength: 30,
+      require: true
 
     },
 
     surname: {
-      type: "string"
+      type: "string",
+      minLength: 5,
+      MaxLength: 30
+      require: true
     },
 
     birthdate: {
-      type: "long"
+      type: "long",
+      require: true
     },
 
     email: {
       type: "string",
+      email: true,
+      requre: true,
       unique: true
     },
 
-    password: {
-      type: "string"
+    height:  {
+      type: "int",
+      required: true,
+      defaultsTo: 0
     },
 
-    passwordConfirmation: {
-      type: "string"
+    weight: {
+      type: "int",
+      required: true,
+      defaultsTo: 0
+    },
+
+    encyptedPassword: {
+      minLength: 8,
+      type: "string",
+
+    },
+    toJSON: function(){
+      var obj = this.toObject();
+      delete obj.password;
+      delete obj.confirmation;
+      delete obj.encryptedPassword;
+      delete obj._csrf;
+      return obj;
     }
+  },
 
+  passwordConfirmation: function(encyrptedPassword){
+    return bcrcypt.compareSync(encyrptedPassword, this.encyptedPassword);
+  }
 
+  beforeCreate: function(values, next){
+    bcrypt.hash(values.encyptedPassword, SALT_WORK_FACTOR, function(err, hash){
+      values.encyptedPassword = hash;
+    });
   }
 };
 
