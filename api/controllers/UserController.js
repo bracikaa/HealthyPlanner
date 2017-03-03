@@ -22,6 +22,29 @@ module.exports = {
 
             return res.json(user);
         });
-    }
+    },
+
+  destroy: function(req, res){
+      User.destroy(req.body).exec(function (err){
+        if(err){
+          console.log(err);
+        }
+        else
+        {
+          console.log("User Destroyed");
+        }
+      });
+  },
+
+  show: function(req, res){
+
+  },
+
+  update: function(req, res){
+  }
+
+
+
+
 };
 
