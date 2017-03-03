@@ -45,13 +45,13 @@ module.exports = {
 
     vitamins: {
       required: true,
-      collection: 'vitamins',
+      collection: 'vitamin',
       via: 'foods'
     },
 
     minerals: {
       required: true,
-      collection: 'minerals',
+      collection: 'mineral',
       via: 'foods'
     }
   }

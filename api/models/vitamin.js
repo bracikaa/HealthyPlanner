@@ -18,7 +18,7 @@ module.exports = {
     },
 
     foods: {
-      collection: 'foods',
+      collection: 'food',
       via: 'vitamins'
     }
 
