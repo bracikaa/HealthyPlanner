@@ -8,6 +8,7 @@
 module.exports = {
 
   attributes: {
+
     name: {
       type: 'string',
       required: true
@@ -17,18 +18,17 @@ module.exports = {
       type: 'int',
       required: true
     },
-
-    fat:{
+    fats:{
       type: 'double',
       required: true
     },
 
-    protein:{
+    proteins:{
       type: 'double',
       required: true
     },
 
-    fiber: {
+    fibers: {
       type: 'double',
       required: true
     },
@@ -44,17 +44,16 @@ module.exports = {
     },
 
     vitamins: {
-      type: 'json',
-      required: true
+      required: true,
+      collection: 'vitamin'
+      via: 'foods'
     },
 
-    mineral: {
-      type: 'json',
-      required: true
+    minerals: {
+      required: true,
+      collection: 'mineral',
+      via: 'foods'
     }
-
-
-
   }
 };
 
