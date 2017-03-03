@@ -6,7 +6,9 @@
  */
 
 module.exports = {
-  index:
+  index: function(req, res){
+
+  }
 
 };
 
