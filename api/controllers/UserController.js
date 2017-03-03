@@ -40,14 +40,14 @@ module.exports = {
       User.find(req.query).exec(function (err, user) {
           if(err) return res.send(err, 500);
           return res.json(user);
-      })
+      });
   },
 
   update: function(req, res){
       User.update(req.query, req.body).exec(function (err, user) {
           if(err) return res.send(err, 500);
           return res.json(user);
-      })
+      });
   }
 
 
