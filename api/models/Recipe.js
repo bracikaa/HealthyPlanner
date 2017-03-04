@@ -7,16 +7,16 @@
 
 module.exports = {
 
-  attributes: {
-    ingredients : {
-      type: 'array',
-      require: true
-    },
+    attributes: {
+        ingredients: {
+            collection: 'food',
+            embed: true
+        },
 
-    text: {
-      type: 'string',
-      require: true
+        name: {
+            type: 'string',
+            require: true
+        }
     }
-  }
 };
 

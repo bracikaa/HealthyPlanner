@@ -28,19 +28,15 @@ module.exports = {
 
     destroy: function (req, res) {
         User.destroy(req.query).exec(function (err) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                console.log("User Destroyed");
-            }
+            if (err) return res.send(err, 500);
+            res.send("ok", 200);
         });
     },
 
     show: function (req, res) {
         User.find(req.query).exec(function (err, user) {
             if (err) return res.send(err, 500);
-            return res.json(user);
+            return res.json(user[0]);
         });
     },
 
