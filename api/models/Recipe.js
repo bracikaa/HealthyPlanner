@@ -24,7 +24,7 @@ module.exports = {
         },
 
         type: {
-            type: 'int'
+            type: 'array'
         }
     }
 };

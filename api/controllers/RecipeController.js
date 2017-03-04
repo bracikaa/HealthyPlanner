@@ -52,9 +52,9 @@ module.exports = {
     },
 
     getMeal: function (req, res) {
-        Recipe.find().exec(function (err, data) {
+        Recipe.find({type: req.query.meal}).exec(function (err, data) {
             if (err) return res.send(err);
-            return data[req.query.meal];
+            return data[0];
         })
     }
 };
