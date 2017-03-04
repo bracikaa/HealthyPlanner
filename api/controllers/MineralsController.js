@@ -47,6 +47,14 @@ module.exports = {
       if(err) return res.send(err, 500);
       return res.json(mineral);
     });
+  },
+
+  login: function(req, res){
+    return res.json({
+      email: req.body.email,
+      password: req.body.password,
+    });
+
   }
 
 
