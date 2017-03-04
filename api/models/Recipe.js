@@ -10,7 +10,7 @@ module.exports = {
     attributes: {
         ingredients: {
             collection: 'recipeFood',
-            embed: true
+            via: 'recipe'
         },
 
         name: {
