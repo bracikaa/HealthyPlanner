@@ -14,7 +14,7 @@ module.exports = {
     },
 
     create: function (req, res) {
-        Recipe.create(req.body).populate('ingredients').exec(function (err, recipe) {
+        Recipe.create(req.body).exec(function (err, recipe) {
             if(err) return res.send(err);
             return res.json(recipe);
         });
