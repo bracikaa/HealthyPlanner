@@ -18,7 +18,7 @@ module.exports = {
         },
 
         food:{
-            model: 'food'
+            collection: 'food',
         }
     }
 };
