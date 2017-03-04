@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-    allergy: {
+    name: {
       type: "string"
     },
 
