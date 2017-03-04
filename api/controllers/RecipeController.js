@@ -59,16 +59,40 @@ module.exports = {
     },
 
     getRecipeOfDay: function (req, res) {
-        Recipe.find().exec(function (err, data) {
-            if(err) return res.send(err);
-            return data[0];
+        Recipe.find().populateAll().then(function (recipes) {
+            return nested(recipes, {
+                ingredients: {
+                    as: 'recipefood',
+                    populate:[
+                        'food'
+                    ]
+                }
+            }).then(function (recipes) {
+                return res.json(recipes[0]);
+            }).catch(function (err) {
+                throw err;
+            })
+        }).catch(function (err) {
+            throw err;
         })
     },
 
     getMeal: function (req, res) {
-        Recipe.find({type: req.query.meal}).exec(function (err, data) {
-            if (err) return res.send(err);
-            return data[0];
+        Recipe.find({type: req.query.meal}).populateAll().then(function (recipes) {
+            return nested(recipes, {
+                ingredients: {
+                    as: 'recipefood',
+                    populate:[
+                        'food'
+                    ]
+                }
+            }).then(function (recipes) {
+                return res.json(recipes[0]);
+            }).catch(function (err) {
+                throw err;
+            })
+        }).catch(function (err) {
+            throw err;
         })
     }
 };
