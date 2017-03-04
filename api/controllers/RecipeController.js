@@ -89,7 +89,7 @@ module.exports = {
                     ]
                 }
             }).then(function (recipes) {
-                return res.json(recipes[0]);
+                return recipes;
             }).catch(function (err) {
                 throw err;
             })
