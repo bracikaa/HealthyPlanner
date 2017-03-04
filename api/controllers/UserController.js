@@ -56,7 +56,7 @@ module.exports = {
             if(err) return res.send(err, 401);
             bcrypt.compare(req.body.password, user[0].password, function (err, ress) {
                 if(err || !ress) return res.send(err, 401);
-                return res.json(user);
+                return res.json(user[0]);
             })
         })
     }
