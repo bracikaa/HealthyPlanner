@@ -46,15 +46,13 @@ module.exports = {
         vitamins: {
             required: true,
             collection: 'vitamin',
-            via: 'foods',
-            embed: true
+            via: 'foods'
         },
 
         minerals: {
             required: true,
             collection: 'mineral',
-            via: 'foods',
-            embed: true
+            via: 'foods'
         }
     }
 };
