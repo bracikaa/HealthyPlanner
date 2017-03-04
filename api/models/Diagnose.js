@@ -7,15 +7,35 @@
 
 module.exports = {
 
-  attributes: {
-    name: {
-      type: "string"
-    },
+    attributes: {
+        name: {
+            type: "string"
+        },
 
-    users: {
-      collection: 'user',
-      via: 'diagnoses'
+        users: {
+            collection: 'user',
+            via: 'diagnoses'
+        },
+
+        needsMoreMinerals: {
+            collection: 'mineral',
+            embed: true
+        },
+
+        needsMoreVitamins: {
+            collection: 'vitamin',
+            embed: true
+        },
+
+        tooMuchMinerals:{
+            collection: 'mineral',
+            embed: true
+        },
+
+        tooMuchVitamins:{
+            collection: 'vitamin',
+            embed: true
+        }
     }
-  }
 };
 
