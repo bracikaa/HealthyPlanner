@@ -15,12 +15,12 @@ module.exports = {
 
         name: {
             type: 'string',
-            require: true
+            required: true
         },
 
         imgUri: {
             type: 'string',
-            require: true
+            required: true
         }
     }
 };
