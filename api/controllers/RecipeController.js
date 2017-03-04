@@ -92,6 +92,7 @@ module.exports = {
                     if(recipe.type !== undefined && recipe.type.indexOf(req.query.meal) != -1)
                         filtered.push(recipe);
                 });
+                console.log(filtered);
                 return res.json(filtered);
             }).catch(function (err) {
                 throw err;
