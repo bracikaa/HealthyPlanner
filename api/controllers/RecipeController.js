@@ -89,6 +89,7 @@ module.exports = {
             }).then(function (recipes){
                 var filtered = [];
                 recipes.forEach(function (recipe) {
+                    console.log(recipe);
                     if(recipe.type != undefined && recipe.type.indexOf(req.query.meal) != -1)
                         filtered.push(recipe);
                 });
