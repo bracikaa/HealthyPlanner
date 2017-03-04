@@ -7,35 +7,35 @@
 
 module.exports = {
 	index: function (req, res) {
-        Recipe.find().populate('ingredients').populate('food').exec(function (err, data) {
+        Recipe.find().populate('ingredients').exec(function (err, data) {
             if(err) return res.send(err, 500);
             return res.json(data);
         });
     },
 
     create: function (req, res) {
-        Recipe.create(req.body).populate('ingredients').populate('food').exec(function (err, recipe) {
+        Recipe.create(req.body).populate('ingredients').exec(function (err, recipe) {
             if(err) return res.send(err);
             return res.json(recipe);
         });
     },
 
     get: function (req, res) {
-        Recipe.find(req.query).populate('ingredients').populate('food').exec(function (err, recipe) {
+        Recipe.find(req.query).populate('ingredients').exec(function (err, recipe) {
             if(err) return res.send(err, 500);
             return res.json(recipe);
         })
     },
 
     update: function (req, res) {
-        Recipe.update(req.query, req.body).populate('ingredients').populate('food').exec(function (err, recipe) {
+        Recipe.update(req.query, req.body).populate('ingredients').exec(function (err, recipe) {
             if(err) return res.send(err, 500);
             return res.json(recipe);
         })
     },
 
     destroy: function (req, res) {
-        Recipe.destroy(req.query).populate('ingredients').populate('food').exec(function (err, data) {
+        Recipe.destroy(req.query).populate('ingredients').exec(function (err, data) {
             if(err) return res.send(err, 500);
             return res.send("ok");
         })
