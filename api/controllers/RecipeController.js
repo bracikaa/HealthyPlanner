@@ -78,7 +78,7 @@ module.exports = {
     },
 
     getMeal: function (req, res) {
-        Recipe.find({type: req.query.meal}).populateAll().then(function (recipes) {
+        Recipe.find({type: [req.query.meal]}).populateAll().then(function (recipes) {
             return nested(recipes, {
                 ingredients: {
                     as: 'recipefood',
