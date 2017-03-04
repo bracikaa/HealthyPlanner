@@ -5,12 +5,21 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var nested = require('nested-pop');
+
 module.exports = {
 	index: function (req, res) {
-        Recipe.find().populateAll().exec(function (err, data) {
-            if(err) return res.send(err, 500);
-            return res.json(data);
-        });
+        Recipe.find().populateAll().then(function (recipes) {
+            return nested(recipes, {
+                ingredients: ['food']
+            }).then(function (recipes) {
+                return res.json(recipes);
+            }).catch(function (err) {
+                throw err;
+            })
+        }).catch(function (err) {
+            throw err;
+        })
     },
 
     create: function (req, res) {
