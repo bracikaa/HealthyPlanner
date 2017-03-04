@@ -39,6 +39,20 @@ module.exports = {
             if(err) return res.send(err, 500);
             return res.send("ok");
         })
+    },
+
+    getRecipeOfDay: function (req, res) {
+        Recipe.find().exec(function (err, data) {
+            if(err) return res.send(err);
+            return data[0];
+        })
+    },
+
+    getMeal: function (req, res) {
+        Recipe.find().exec(function (err, data) {
+            if (err) return res.send(err);
+            return data[req.query.meal];
+        })
     }
 };
 

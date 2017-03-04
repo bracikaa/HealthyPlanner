@@ -7,53 +7,55 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
 
-    name: {
-      type: 'string',
-      required: true
-    },
+        name: {
+            type: 'string',
+            required: true
+        },
 
-    calories: {
-      type: 'int',
-      required: true
-    },
-    fats:{
-      type: 'double',
-      required: true
-    },
+        calories: {
+            type: 'int',
+            required: true
+        },
+        fats: {
+            type: 'double',
+            required: true
+        },
 
-    proteins:{
-      type: 'double',
-      required: true
-    },
+        proteins: {
+            type: 'double',
+            required: true
+        },
 
-    fibers: {
-      type: 'double',
-      required: true
-    },
+        fibers: {
+            type: 'double',
+            required: true
+        },
 
-    carbohydrates: {
-      type: 'double',
-      required: true
-    },
+        carbohydrates: {
+            type: 'double',
+            required: true
+        },
 
-    sugars: {
-      type: 'double',
-      required: true
-    },
+        sugars: {
+            type: 'double',
+            required: true
+        },
 
-    vitamins: {
-      required: true,
-      collection: 'vitamin',
-      via: 'foods'
-    },
+        vitamins: {
+            required: true,
+            collection: 'vitamin',
+            via: 'foods',
+            embed: true
+        },
 
-    minerals: {
-      required: true,
-      collection: 'mineral',
-      via: 'foods'
+        minerals: {
+            required: true,
+            collection: 'mineral',
+            via: 'foods',
+            embed: true
+        }
     }
-  }
 };
 
