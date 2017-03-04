@@ -15,7 +15,13 @@ module.exports = {
 
     weight: {
       type: 'float'
+    },
+
+    foods: {
+      collection: 'food',
+      via: 'vitamins'
     }
+
 
   }
 };
