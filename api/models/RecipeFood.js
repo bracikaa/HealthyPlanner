@@ -12,5 +12,8 @@ module.exports = {
         amount:{
             type: 'int'
         }
-    }
+    },
+    associations: [{
+        alias: 'food'
+    }]
 };
