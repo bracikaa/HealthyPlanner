@@ -21,6 +21,10 @@ module.exports = {
         imgUri: {
             type: 'string',
             required: true
+        },
+
+        type: {
+            type: 'int'
         }
     }
 };
