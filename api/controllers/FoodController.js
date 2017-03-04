@@ -7,7 +7,7 @@
 
 module.exports = {
   index: function(req, res){
-    Food.find().exec(function(err, data){
+    Food.find().populate('vitamins').populate('minerals').exec(function(err, data){
       return res.json(data);
     });
   },

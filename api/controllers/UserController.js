@@ -9,7 +9,7 @@ var bcrypt = require("bcrypt");
 
 module.exports = {
     index: function (req, res) {
-        User.find().populate('minerals').populate('vitamins').exec(function (err, data) {
+        User.find().exec(function (err, data) {
             return res.json(data);
         });
     },
