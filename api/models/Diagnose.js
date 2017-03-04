@@ -31,6 +31,22 @@ module.exports = {
 
         tooMuchVitamins:{
             collection: 'vitamin'
+        },
+
+        fats:{
+            type: "int"
+        },
+
+        fibers:{
+            type: 'int'
+        },
+
+        carbohydrates:{
+            type: 'int'
+        },
+
+        sugars:{
+            type: 'int'
         }
     }
 };
