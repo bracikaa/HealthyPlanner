@@ -18,23 +18,19 @@ module.exports = {
         },
 
         needsMoreMinerals: {
-            collection: 'mineral',
-            embed: true
+            collection: 'mineral'
         },
 
         needsMoreVitamins: {
-            collection: 'vitamin',
-            embed: true
+            collection: 'vitamin'
         },
 
         tooMuchMinerals:{
-            collection: 'mineral',
-            embed: true
+            collection: 'mineral'
         },
 
         tooMuchVitamins:{
-            collection: 'vitamin',
-            embed: true
+            collection: 'vitamin'
         }
     }
 };

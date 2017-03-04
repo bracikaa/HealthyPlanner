@@ -7,15 +7,19 @@
 
 module.exports = {
 
-  attributes: {
-    name: {
-      type: "string"
-    },
+    attributes: {
+        name: {
+            type: "string"
+        },
 
-    users: {
-      collection: 'user',
-      via: 'allergies'
+        users: {
+            collection: 'user',
+            via: 'allergies'
+        },
+
+        food:{
+            model: 'food'
+        }
     }
-  }
 };
 
