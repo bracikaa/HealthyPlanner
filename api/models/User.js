@@ -45,16 +45,39 @@ module.exports = {
             defaultsTo: 0
         },
 
+      breakfast: {
+          type: "string"
+      },
+
+      lunch:  {
+        type: "string"
+      },
+
+      dinner: {
+        type: "string"
+      },
+
         weight: {
             type: "int",
             required: true,
             defaultsTo: 0
         },
 
+      allergies: {
+        collection: "allergy",
+        via: "users"
+      },
+
+      diagnoses: {
+          collection: "diagnose",
+        via: "users"
+      },
+
         password: {
             minLength: 8,
             type: "string"
-        }
+        },
+
     },
 
     beforeCreate: function (values, cb) {

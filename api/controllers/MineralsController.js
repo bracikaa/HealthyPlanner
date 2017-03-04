@@ -50,7 +50,7 @@ module.exports = {
   },
 
   login: function(req, res){
-    return res.json({
+    return req.login({
       email: req.body.email,
       password: req.body.password,
     });
