@@ -56,7 +56,8 @@ module.exports = {
         },
 
         recipefoods: {
-            model: 'recipefood'
+            model: 'recipefood',
+            via: 'food'
         }
     }
 };
