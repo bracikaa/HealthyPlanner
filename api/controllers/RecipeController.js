@@ -15,7 +15,10 @@ module.exports = {
 
     create: function (req, res) {
         Recipe.create(req.body).exec(function (err, recipe) {
-            if(err) return res.send(err);
+            if(err) {
+                console.log(err);
+                return res.send(err);
+            }
             return res.json(recipe);
         });
     },
