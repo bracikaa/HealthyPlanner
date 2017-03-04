@@ -78,9 +78,7 @@ module.exports = {
     },
 
     getMeal: function (req, res) {
-        Recipe.find({type: {
-            'contains': [req.query.meal]
-        }}).populateAll().then(function (recipes) {
+        Recipe.find().populateAll().then(function (recipes) {
             return nested(recipes, {
                 ingredients: {
                     as: 'recipefood',
@@ -88,8 +86,13 @@ module.exports = {
                         'food'
                     ]
                 }
-            }).then(function (recipes) {
-                return res.json(recipes);
+            }).then(function (recipes){
+                var filtered = [];
+                recipes.forEach(function (recipe) {
+                    if(recipe.type.contains(req.query.meal))
+                        filtered.push(recipe);
+                });
+                return res.json(filtered);
             }).catch(function (err) {
                 throw err;
             })
