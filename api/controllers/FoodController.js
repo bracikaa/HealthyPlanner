@@ -13,7 +13,7 @@ module.exports = {
   },
 
   create: function(req, res){
-    Food.create(req.body).exec(function foodCreated(err, food){
+    Food.create(req.body).populate('vitamins').populate('minerals').exec(function foodCreated(err, food){
       if(err){
         console.log(err);
         return res.send(err, 500);
@@ -35,7 +35,7 @@ module.exports = {
   },
 
   show: function(reg, res){
-    Food.find(req.query).exec(function(err, food){
+    Food.find(req.query).populate('vitamins').populate('minerals').exec(function(err, food){
       if(err) return res.send(err, 500);
       return res.json(food);
 
@@ -43,7 +43,7 @@ module.exports = {
   },
 
   update: function(req, res){
-    Food.update(req.query, req.body).exec(function(err, food){
+    Food.update(req.query, req.body).populate('vitamins').populate('minerals').exec(function(err, food){
       if(err) return res.send(err, 500);
       return res.json(food);
     });
