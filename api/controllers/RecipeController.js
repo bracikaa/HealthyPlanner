@@ -7,7 +7,7 @@
 
 module.exports = {
 	index: function (req, res) {
-        Recipe.find().populate('ingredients').exec(function (err, data) {
+        Recipe.find().populate('ingredients.food').exec(function (err, data) {
             if(err) return res.send(err, 500);
             return res.json(data);
         });
