@@ -16,6 +16,11 @@ module.exports = {
         name: {
             type: 'string',
             require: true
+        },
+
+        imgUri: {
+            type: 'string',
+            require: true
         }
     }
 };

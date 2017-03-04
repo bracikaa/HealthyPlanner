@@ -7,6 +7,10 @@ module.exports = {
 
         recipe: {
             model: 'recipe'
+        },
+
+        amount:{
+            type: 'int'
         }
     }
 };
