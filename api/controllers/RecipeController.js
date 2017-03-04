@@ -11,7 +11,12 @@ module.exports = {
 	index: function (req, res) {
         Recipe.find().populateAll().then(function (recipes) {
             return nested(recipes, {
-                ingredients: ['food']
+                ingredients: {
+                    as: 'recipefood',
+                    populate:[
+                        'food'
+                    ]
+                }
             }).then(function (recipes) {
                 return res.json(recipes);
             }).catch(function (err) {
