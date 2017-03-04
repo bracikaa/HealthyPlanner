@@ -53,6 +53,10 @@ module.exports = {
             required: true,
             collection: 'mineral',
             via: 'foods'
+        },
+
+        recipefoods: {
+            model: 'recipefood'
         }
     }
 };
