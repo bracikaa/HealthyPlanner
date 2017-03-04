@@ -45,17 +45,17 @@ module.exports = {
             defaultsTo: 0
         },
 
-      breakfast: {
-          type: "string"
-      },
+        breakfast: {
+            type: "string"
+        },
 
-      lunch:  {
-        type: "string"
-      },
+        lunch: {
+            type: "string"
+        },
 
-      dinner: {
-        type: "string"
-      },
+        dinner: {
+            type: "string"
+        },
 
         weight: {
             type: "int",
@@ -63,26 +63,26 @@ module.exports = {
             defaultsTo: 0
         },
 
-      allergies: {
-        collection: "allergy",
-        via: "users"
-      },
+        allergies: {
+            collection: "allergy",
+            via: "users"
+        },
 
-      diagnoses: {
-          collection: "diagnose",
-        via: "users"
-      },
+        diagnoses: {
+            collection: "diagnose",
+            via: "users"
+        },
 
         password: {
             minLength: 8,
             type: "string"
-        },
+        }
 
     },
 
     beforeCreate: function (values, cb) {
         bcrypt.hash(values.password, 10, function (err, hash) {
-            if(err) cb(err);
+            if (err) cb(err);
             values.password = hash;
             cb();
         });

@@ -5,11 +5,13 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var bcrypt = require("bcrypt");
+
 module.exports = {
     index: function (req, res) {
         User.find().exec(function (err, data) {
-          return res.json(data);
-      });
+            return res.json(data);
+        });
     },
 
     create: function (req, res) {
@@ -24,34 +26,40 @@ module.exports = {
         });
     },
 
-  destroy: function(req, res){
-      User.destroy(req.query).exec(function (err){
-        if(err){
-          console.log(err);
-        }
-        else
-        {
-          console.log("User Destroyed");
-        }
-      });
-  },
+    destroy: function (req, res) {
+        User.destroy(req.query).exec(function (err) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log("User Destroyed");
+            }
+        });
+    },
 
-  show: function(req, res){
-      User.find(req.query).exec(function (err, user) {
-          if(err) return res.send(err, 500);
-          return res.json(user);
-      });
-  },
+    show: function (req, res) {
+        User.find(req.query).exec(function (err, user) {
+            if (err) return res.send(err, 500);
+            return res.json(user);
+        });
+    },
 
-  update: function(req, res){
-      User.update(req.query, req.body).exec(function (err, user) {
-          if(err) return res.send(err, 500);
-          return res.json(user);
-      });
-  }
+    update: function (req, res) {
+        User.update(req.query, req.body).exec(function (err, user) {
+            if (err) return res.send(err, 500);
+            return res.json(user);
+        });
+    },
 
-
-
+    login: function (req, res) {
+        User.find({email: req.body.email}).exec(function (err, user) {
+            if(err) return res.send(err, 401);
+            bcrypt.compare(req.body.password, user[0].password, function (err, ress) {
+                if(err || !ress) return res.send(err, 401);
+                return res.json(user);
+            })
+        })
+    }
 
 };
 
