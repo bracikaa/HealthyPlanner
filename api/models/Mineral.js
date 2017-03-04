@@ -14,7 +14,7 @@ module.exports = {
     },
 
     weight: {
-      type: 'double',
+      type: 'float',
     },
 
     foods: {

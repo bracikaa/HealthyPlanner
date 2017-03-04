@@ -19,27 +19,27 @@ module.exports = {
             required: true
         },
         fats: {
-            type: 'double',
+            type: 'float',
             required: true
         },
 
         proteins: {
-            type: 'double',
+            type: 'float',
             required: true
         },
 
         fibers: {
-            type: 'double',
+            type: 'float',
             required: true
         },
 
         carbohydrates: {
-            type: 'double',
+            type: 'float',
             required: true
         },
 
         sugars: {
-            type: 'double',
+            type: 'float',
             required: true
         },
 
