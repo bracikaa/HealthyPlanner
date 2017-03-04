@@ -97,6 +97,7 @@ module.exports = {
                 throw err;
             })
         }).catch(function (err) {
+            console.log(err);
             res.send(err, 500);
         })
     }
