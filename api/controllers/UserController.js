@@ -48,9 +48,9 @@ module.exports = {
     },
 
     login: function (req, res) {
-        User.find({email: req.param.email}).populateAll().exec(function (err, user) {
+        User.find({email: req.body.email}).populateAll().exec(function (err, user) {
             if(err) return res.send(err, 401);
-            bcrypt.compare(req.param.password, user[0].password, function (err, ress) {
+            bcrypt.compare(req.body.password, user[0].password, function (err, ress) {
                 if(err || !ress) return res.send(err, 401);
                 return res.json(user[0]);
             })
