@@ -24,7 +24,7 @@ module.exports = {
   },
 
   destroy: function(req, res){
-    Food.destroy(reg.query).exec(function(err){
+    Food.destroy(req.query).exec(function(err){
       if(err){
         console.log(err);
       }

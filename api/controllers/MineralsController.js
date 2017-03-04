@@ -24,7 +24,7 @@ module.exports = {
   },
 
   destroy: function(req, res){
-    Mineral.destroy(reg.query).exec(function(err){
+    Mineral.destroy(req.query).exec(function(err){
       if(err){
         console.log(err);
       }

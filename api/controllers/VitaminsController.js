@@ -24,7 +24,7 @@ module.exports = {
   },
 
   destroy: function(req, res){
-    Vitamin.destroy(reg.query).exec(function(err){
+    Vitamin.destroy(req.query).exec(function(err){
       if(err){
         console.log(err);
       }
